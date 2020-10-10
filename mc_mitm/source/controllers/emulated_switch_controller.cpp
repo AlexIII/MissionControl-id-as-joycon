@@ -153,6 +153,7 @@ namespace ams::controller {
         m_left_stick.SetData(STICK_CENTER, STICK_CENTER);
         m_right_stick.SetData(STICK_CENTER, STICK_CENTER);
         std::memset(&m_motion_data, 0, sizeof(m_motion_data));
+        std::memset(&m_buttons_previous, 0, sizeof(m_buttons_previous));
     }
 
     void EmulatedSwitchController::UpdateControllerState(const bluetooth::HidReport *report) {
@@ -215,6 +216,8 @@ namespace ams::controller {
             default:
                 break;
         }
+
+        m_buttons_previous = m_buttons;
     }
 
     Result EmulatedSwitchController::HandleOutputDataReport(const bluetooth::HidReport *report) {

@@ -84,6 +84,7 @@ namespace ams::controller {
 
             bool m_enable_rumble;
             bool m_enable_motion;
+            SwitchButtonData m_buttons_previous;
 
             float m_trigger_threshold;
 
