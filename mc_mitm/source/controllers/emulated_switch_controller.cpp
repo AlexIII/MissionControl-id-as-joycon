@@ -170,7 +170,16 @@ namespace ams::controller {
 
         std::memcpy(&input_report->type0x30.motion_data, &m_motion_data, sizeof(m_motion_data));
         m_input_report.size = offsetof(SwitchInputReport, type0x30) + sizeof(input_report->type0x30);
-        
+
+        // Toggle controller type
+        if ((m_buttons.lstick_press && !m_buttons_previous.lstick_press) && m_buttons.rstick_press) {
+            this->SetEmulatedControllerType(
+                m_emulated_type == SwitchControllerType_ProController ? SwitchControllerType_RightJoyCon : (
+                    m_emulated_type == SwitchControllerType_RightJoyCon ? SwitchControllerType_LeftJoyCon : SwitchControllerType_ProController
+                )
+            );
+        }
+
         // Fixup for identifying as horizontal joycon
         switch (m_emulated_type) {
             case SwitchControllerType_RightJoyCon:
@@ -652,6 +661,11 @@ namespace ams::controller {
 
         // Write a fake response into the report buffer
         R_RETURN(bluetooth::hid::report::WriteHidDataReport(m_address, &m_input_report));
+    }
+
+    Result EmulatedSwitchController::SetEmulatedControllerType(SwitchControllerType type) {
+        m_emulated_type = type;
+        return bluetooth::hid::VirtualReconnect(&m_address);
     }
 
 }

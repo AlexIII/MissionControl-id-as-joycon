@@ -17,6 +17,7 @@
 #include "switch_analog_stick.hpp"
 #include "../bluetooth_mitm/bluetooth/bluetooth_types.hpp"
 #include "../bluetooth_mitm/bluetooth/bluetooth_hid_report.hpp"
+#include "../bluetooth_mitm/bluetooth/bluetooth_hid.hpp"
 #include "../async/future_response.hpp"
 #include <queue>
 
