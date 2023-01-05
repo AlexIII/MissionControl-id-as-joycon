@@ -65,6 +65,8 @@ namespace ams::controller {
             Result FakeHidCommandResponse(const SwitchHidCommandResponse *response);
             Result FakeNfcIrResponse(const SwitchNfcIrResponse *response);
 
+            SwitchControllerType m_emulated_type;
+            
             bool m_charging;
             bool m_ext_power;
             u8 m_battery;
