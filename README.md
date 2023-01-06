@@ -1,3 +1,12 @@
+**This fork allows to identify controller as a joycon**
+
+Press both sticks simultaneously in order to cycle emulated controller type: Pro -> Right Joycon -> Left Joycon -> Pro.
+
+This is work in progress. See [this issue](https://github.com/ndeadly/MissionControl/issues/561)
+
+--------- Original readme ---------------
+
+
 <p align="left">
 <a href="https://github.com/ndeadly/MissionControl/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/ndeadly/MissionControl"></a>
 <a href="https://github.com/ndeadly/MissionControl/releases/latest"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/ndeadly/MissionControl"></a>
