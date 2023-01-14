@@ -201,6 +201,17 @@ namespace ams::controller {
                 input_report->buttons.B = m_buttons.Y;
                 input_report->buttons.X = m_buttons.A;
                 input_report->buttons.Y = m_buttons.X;
+
+                for(int i = 0; i < 3; ++i) {
+                    int16_t tmp = input_report->type0x30.motion_data[i].accel_x;
+                    input_report->type0x30.motion_data[i].accel_x = -input_report->type0x30.motion_data[i].accel_y;
+                    input_report->type0x30.motion_data[i].accel_y = -tmp;
+                    input_report->type0x30.motion_data[i].accel_z = -input_report->type0x30.motion_data[i].accel_z;
+                    tmp = input_report->type0x30.motion_data[i].gyro_1;
+                    input_report->type0x30.motion_data[i].gyro_1 = -input_report->type0x30.motion_data[i].gyro_2;
+                    input_report->type0x30.motion_data[i].gyro_2 = -tmp;
+                    input_report->type0x30.motion_data[i].gyro_3 = -input_report->type0x30.motion_data[i].gyro_3;
+                }
                 break;
             case SwitchControllerType_LeftJoyCon:
                 if (m_buttons.dpad_down | m_buttons.dpad_up | m_buttons.dpad_right | m_buttons.dpad_left){
@@ -221,6 +232,15 @@ namespace ams::controller {
                 input_report->buttons.dpad_left = m_buttons.B;
                 input_report->buttons.dpad_up = m_buttons.Y;
                 input_report->buttons.dpad_right = m_buttons.X;
+
+                for(int i = 0; i < 3; ++i) {
+                    int16_t tmp = input_report->type0x30.motion_data[i].accel_x;
+                    input_report->type0x30.motion_data[i].accel_x = input_report->type0x30.motion_data[i].accel_y;
+                    input_report->type0x30.motion_data[i].accel_y = -tmp;
+                    tmp = input_report->type0x30.motion_data[i].gyro_1;
+                    input_report->type0x30.motion_data[i].gyro_1 = input_report->type0x30.motion_data[i].gyro_2;
+                    input_report->type0x30.motion_data[i].gyro_2 = -tmp;
+                }
                 break;
             default:
                 break;
