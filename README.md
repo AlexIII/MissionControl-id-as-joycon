@@ -1,10 +1,37 @@
-**This fork allows to identify controller as a joycon**
+# Mission Control
 
-Press both sticks simultaneously in order to cycle emulated controller type: Pro -> Right Joycon -> Left Joycon -> Pro.
+Use controllers from other consoles natively on your Nintendo Switch via Bluetooth. No dongles or other external hardware necessary.
+
+## This fork allows to identify controller as a joycon
+
+### Usage
+
+Press both sticks simultaneously in order to cycle the emulated controller type: Pro -> Right Joycon -> Left Joycon -> Pro.
+
+On the first switch to Joycon controller type the console will offer to update the controller firmware. **Select NO.**
+This message will not bother you until you connect the controller next time.
+
+### Install
+
+Binaries are available from the [Releases page](https://github.com/AlexIII/MissionControl-id-as-joycon/releases). Base version of the original MissionControl is v0.9.4.
+
+*The original instructions applies:*
+
+> Download the latest release .zip and extract to the root of your SD card, allowing the folders to merge and overwriting any existing files. Reboot your console to activate the module and you're done!
+
+### Build
+
+*Follow the original instructions*
+
+
+### Notes
 
 This is work in progress. See [this issue](https://github.com/ndeadly/MissionControl/issues/561)
 
---------- Original readme ---------------
+##
+##
+##
+# Original readme
 
 
 <p align="left">
