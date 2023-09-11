@@ -185,8 +185,8 @@ namespace ams::controller {
             case SwitchControllerType_RightJoyCon:
                 if (m_buttons.dpad_down | m_buttons.dpad_up | m_buttons.dpad_right | m_buttons.dpad_left){
                     input_report->right_stick.SetData(
-                        m_buttons.dpad_down ? UINT12_MAX : (m_buttons.dpad_up ? 0 : STICK_ZERO),
-                        m_buttons.dpad_right ? UINT12_MAX : (m_buttons.dpad_left ? 0 : STICK_ZERO)
+                        m_buttons.dpad_down ? UINT12_MAX : (m_buttons.dpad_up ? 0 : STICK_CENTER),
+                        m_buttons.dpad_right ? UINT12_MAX : (m_buttons.dpad_left ? 0 : STICK_CENTER)
                     );
                 }
                 else {
@@ -216,8 +216,8 @@ namespace ams::controller {
             case SwitchControllerType_LeftJoyCon:
                 if (m_buttons.dpad_down | m_buttons.dpad_up | m_buttons.dpad_right | m_buttons.dpad_left){
                     input_report->right_stick.SetData(
-                        m_buttons.dpad_up ? UINT12_MAX : (m_buttons.dpad_down ? 0 : STICK_ZERO),
-                        m_buttons.dpad_left ? UINT12_MAX : (m_buttons.dpad_right ? 0 : STICK_ZERO)
+                        m_buttons.dpad_up ? UINT12_MAX : (m_buttons.dpad_down ? 0 : STICK_CENTER),
+                        m_buttons.dpad_left ? UINT12_MAX : (m_buttons.dpad_right ? 0 : STICK_CENTER)
                     );
                 }
                 else {
